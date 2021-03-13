@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">お気に入りリスト</h1>
+  </div>
+</div>
+{% endblock header %}
+
+{% block contents %}
+
+<div class='container'>
+{% for item in object_list %}
+  <div class="alert alert-primary" role="alert">
+
+    <a href="{% url 'favorite_company' item.pk %}">
+      <p>コード:{{ item.code }}</p>
+    </a>
+    <form action="{% url 'favorite_code_delete' item.pk %}" method='POST'>{% csrf_token %}
+      <input type='submit' value='削除します'>
+    </form>
+  </div>
+    {% endfor %}
+</div>
+{% endblock contents %}

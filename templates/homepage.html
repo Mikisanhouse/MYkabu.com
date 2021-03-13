@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">My株.com</h1>
+    <p class="lead">お気に入りの株を見つけよう！！</p>
+  </div>
+</div>
+{% endblock header %}
+
+{% block contents %}
+<!-- ここから -->
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">企業を探す</h5>
+      <p class="card-text">米国企業コード入力すると企業の株価を調べることができます！</p>
+      <form action="{% url 'company' %}" method="POST">{% csrf_token %}
+        <div class="form-group">
+          <label>企業コード：</label>
+          <input type="text" name="code">
+        </div>
+        <button type="submit" class="btn btn-primary">検索</button>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">お気に入りリスト</h5>
+      <p class="card-text">自分のお気に入りの企業を簡単に確認できます！</p>
+      <a href="{% url 'favorite_list' %}">お気に入りリスト</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">分析ツール</h5>
+      <p class="card-text">2つの米国企業を比較することができます！</p>
+      <form action="{% url 'result' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">調べる</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ここまで -->
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+      <h2 class="featurette-heading"><a href="{% url 'board' %}">掲示板</a></h2>
+    <p class="lead">みんながおすすめする企業を見てみよう！</p>
+  </div>
+</div>
+
+<a href="{% url 'logout' %}">ログアウト</a>
+{% endblock contents %}
+
+
+<!-- {% url 'company' %} -->

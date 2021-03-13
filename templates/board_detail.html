@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">個別投稿</h1>
+  </div>
+</div>
+{% endblock header %}
+
+{% block contents %}
+<div class='container'>
+  <div class="alert alert-primary" role="alert">
+    <p>タイトル:{{ object.title }}</p>
+    <p>投稿者:{{ object.author }}</p>
+    <p>内容:{{ object.content }}</p>
+    <p><img src="{% url 'img_plot_board' object.pk %}" width=300></p>
+  </div>
+</div>
+{% endblock contents %}

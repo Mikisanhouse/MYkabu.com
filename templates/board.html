@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">掲示板</h1>
+  </div>
+</div>
+{% endblock header %}
+
+{% block contents %}
+<div class='container'>
+  {% for item in object_list %}
+  <div class="alert alert-primary" role="alert">
+    <p>タイトル:<a href="{% url 'board_detail'  item.pk%}">{{ item.title }}</a></p>
+    <p>投稿者:{{ item.author }}</p>
+  </div>
+  {% endfor %}
+</div>
+<div>
+  <a href="{{request.META.HTTP_REFERER}}">戻る</a>
+</div>
+{% endblock contents %}

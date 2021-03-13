@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<form action="" method='POST' enctype='multipart/form-data'>{% csrf_token %}
+  <p>タイトル：<input type="text" name='title'></p>
+  <p>内容：<input type="text" name='content'></p>
+  <p>画像：
+    <img src="{% url 'img_plot' %}" width=600 height=600>
+    <input type="hidden" name="images_code" value="{{ code.code }}">
+  </p>
+  <input type="hidden" name='author' value="{{ user.username }}">
+  <input type="submit" value='作成する'>
+</form>
+
+{{ foo }}
+{% endblock contents %}

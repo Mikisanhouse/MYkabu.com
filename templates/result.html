@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">結果</h1>
+  </div>
+</div>
+<div>
+  {{ word }}
+</div>
+<div class='container'>
+  <img src="{% url 'img_plot_reslut' %}" width=600 height=600>
+</div>
+<a href="{{request.META.HTTP_REFERER}}">戻る</a>
+{% endblock contents %}

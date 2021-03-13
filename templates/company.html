@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">結果</h1>
+  </div>
+</div>
+<div>
+  {{ word }}
+  {{ code }}
+</div>
+<img src="{% url 'img_plot' %}" width=600 height=600>
+<div>
+  <a href="{% url 'favorite_create' %}">お気に入り</a>
+</div>
+<div>
+  <a href="{% url 'create' %}">掲示板に残そう！</a>
+</div>
+{{ create }}
+<div>
+  <a href="{{request.META.HTTP_REFERER}}">戻る</a>
+</div>
+{% endblock contents %}
