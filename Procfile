@@ -1,1 +1,1 @@
-web: gunicorn MYkabu.wsgi --log-file -
+web: gunicorn My株project.wsgi --log-file -
