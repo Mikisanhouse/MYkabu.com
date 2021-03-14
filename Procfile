@@ -1,1 +1,0 @@
-web: gunicorn My株project.wsgi --log-file -
