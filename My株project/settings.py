@@ -27,9 +27,9 @@ SECRET_KEY = '!)0a&%vul0+*5qx$ci5b34f5*kx45hkopr%w43(___&x-js)o_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-
-ALLOWED_HOSTS = []
-
+# 3/20追記
+ALLOWED_HOSTS = ['mykabu-2021.herokuapp.com']
+# 3/20追記
 
 # Application definition
 
