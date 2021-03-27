@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = False
 
 # 3/20追記
-ALLOWED_HOSTS = ['mykabu-2021.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','mykabu-2021.herokuapp.com']
 # 3/20追記
 
 # Application definition
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',    
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     # ↑追記
 ]
 
