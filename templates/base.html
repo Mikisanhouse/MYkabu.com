@@ -20,12 +20,14 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" href="{% url 'homepage' %}">MY株.com</a>
-      {% if user.id %}
-      <p>こんにちは，{{ user.username }}さん</p>
-      {% else %}
-      <a class="btn btn-primary" href="{% url 'login' %}">Sign In</a>
-      <a href="{% url 'signup' %}">アカウント作成</a>
-      {% endif %}
+      <div>
+        {% if user.id %}
+        <p>こんにちは，{{ user.username }}さん</p>
+        {% else %}
+        <a class="btn btn-primary" href="{% url 'login' %}">Sign In</a>
+        <a href="{% url 'signup' %}">アカウント作成</a>
+        {% endif %}
+      </div>
     </div>
   </nav>
   {% block header %}
