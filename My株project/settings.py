@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!)0a&%vul0+*5qx$ci5b34f5*kx45hkopr%w43(___&x-js)o_'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -80,12 +80,18 @@ WSGI_APPLICATION = 'My株project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# 3月27日追記
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'name',
+        'USER': 'user',
+        'PASSWORD': '',
+        'HOST': 'host',
+        'PORT': '',
     }
 }
+# 3月27日追記
 
 
 db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
@@ -158,4 +164,12 @@ except ImportError:
 if not DEBUG:
     import django_heroku
     django_heroku.settings(locals())
+# 3/20追記
+
+# 3/27追記
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+
+db_from_env = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'].update(db_from_env)
 # 3/20追記
